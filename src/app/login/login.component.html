@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-6">
+        <h1>GET the Records</h1>
+        <!-- <button (Click)="getData()">Get Records</button> -->
+        <table>
+            <tr>
+                <td>DepartmentID</td>
+                <td>DepartmentName</td>
+                <td>DepartmentLogo</td>
+                <td>Status</td>
+            </tr>
+            @for(item of department; track $index){
+            <tr>
+                <td>{{item.departmentId}}</td>
+                <td>{{item.departmentName}}</td>
+                <td>{{item.departmentLogo}}</td>
+                <button (click)="onUpdate()" class="btn btn-primary ">Update</button>
+                <button (click)="onDelete(id)" class=" btn btn-danger ">DELETE</button>
+            </tr>
+            }
+        </table>
+    </div>
+    <div class="col-6 ">
+        <form>
+            <div class=" mb-3 mt-3 ">
+                <label for="email " class="form-label ">Department Name:</label>
+                <input type="text " class="form-control " id="name " [(ngModel)]="DeptObj.departmentName " placeholder="Enter department name " name="name ">
+            </div>
+            <div class="mb-3 ">
+                <label for="pwd " class="form-label ">Department Logo:</label>
+                <input type="text " class="form-control " id="logo " [(ngModel)]="DeptObj.departmentLogo " placeholder="Enter department logo " name="logo ">
+            </div>
+
+            <button type="submit " (click)="onSubmit() " class="btn btn-primary ">Submit</button>
+        </form>
+    </div>
+</div>
